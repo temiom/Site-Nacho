@@ -1,0 +1,723 @@
+/* ===== GERAL ==========*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    font-size: 62.5%;
+
+    --dark-orange: hsl(17, 95%, 37%);
+    --light-orange: hsl(21, 90%, 48%);
+    --background: hsl(34, 100%, 95%);
+    --background-2: hsl(35, 100%, 89%);
+    --soft-background: hsl(34, 100%, 97%);
+    --headline: hsl(210, 11%, 15%);
+    --paragraph: hsl(210, 9%, 31%);
+
+
+    --primary-color: hsl(20, 100%, 56%);
+    --soft-orange: hsl(20, 59%, 84%);
+    --soft-orange-2: hsl(20, 100%, 89%);
+
+    --nav-height: 7.2rem;
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+nav {
+    display: none;
+}
+
+body {
+    font-family: 'DM Sans';
+    font-size: 1.6rem;
+    background-color: var(--background);
+    text-align: center;
+}
+
+h1 {
+    font-size: 3.2rem;
+    margin-bottom: 2rem;
+    color: var(--headline);
+}
+
+p {
+    color: var(--paragraph);
+}
+
+ul {
+    list-style: none;
+    padding-bottom: 2.4rem;
+}
+
+li {
+    padding-bottom: 2rem;
+}
+
+img {
+    display: flex;
+    align-items: center;
+    margin-inline: auto;
+
+    width: min(15rem, 100%);
+    height: min(10rem, 100%);
+}
+
+footer {
+    background-color: var(--light-orange);
+    padding-block: 2.4rem;
+    display: flex;
+    display: none;
+}
+
+.wrapper {
+    width: min(50rem, 100%);
+    margin-inline: auto;
+    padding-inline: 2.4rem;
+}
+
+.content {
+    margin-bottom: 2.4rem;
+}
+
+/* ==== NAVIGATION =======================================*/
+.menu .social-links li a img {
+    height: 2.5rem;
+    width: 2.5rem;
+}
+.menu .social-links,
+.menu ul {
+    display: flex;
+    margin-inline: auto;
+    justify-content: center;
+    gap: 3rem;
+    padding-bottom: 0;
+}
+
+/* ===== HOME ==========*/
+
+#home::before {
+    content: "";
+    background-color: var(--background-2);
+    width: 100%;
+    height: calc(100% + var(--nav-height));
+
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+#home h4 {
+    padding-top: 2.4rem;
+    color: var(--light-orange);
+}
+
+#home img {
+    height: min(40rem, 100%);
+    width: min(35rem, 100%);
+    display: block;
+}
+
+#home .content {
+    margin-bottom: 0;
+}
+
+/* ===== ABOUT ==========*/
+
+#about .content {
+    background-color: var(--soft-background);
+    border-radius: 2rem;
+    height: fit-content;
+    justify-content: center;
+    align-self: center;
+    padding: 1rem;
+    padding-inline: 4rem;
+    border: 1px solid var(--soft-orange-2);
+}
+
+#about p {
+   padding-bottom: 2.4rem;
+}
+
+.social-links ul li a img {
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+.social-links ul {
+    display: flex;
+    margin-inline: auto;
+    justify-content: center;
+    gap: 3rem;
+    padding-bottom: 0;
+}
+
+/* ===== COMMUNITY ==========*/
+.groups h2 {
+    margin-inline: auto;
+    width: 17rem;
+    padding-top: 1rem;
+}
+
+/* ===== BUILDS ==========*/
+#brunachosBuilds .wrapper {
+    padding-inline: 1rem;
+}
+
+#dofusBuilds {
+    height: 19rem;
+    border-radius: 1rem;
+    border: 1px solid var(--soft-orange-2);
+    background-color: var(--background-2);
+}
+
+#dofusBuilds.buildMenu-expanded {
+    height: fit-content;
+    transition: height 700ms;
+}
+
+#dofusBuilds img {
+    margin-block: .5rem;
+    width: 25rem;
+    height: 18rem;
+}
+
+.dofusClasses {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-100%);
+}
+
+.dofusClasses ul li {
+    border-radius: 1rem;
+    border: 1px solid var(--soft-orange);
+    padding-block: 1rem;
+    margin-inline: auto;
+    justify-content: center;
+    align-items: center;
+    width: 18rem;
+    margin-bottom: 1rem;
+    background-color: var(--soft-background);
+    
+}
+
+#dofusBuilds .dofusClasses ul li img {
+    width: 5rem;
+    height: 5rem;
+    margin-bottom: 2rem;
+}
+
+#dofusBuilds.buildMenu-expanded .dofusClasses {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 300ms;
+}
+
+.dofusClasses ul li.classDofusBuildsMenu-expanded {
+    background-color: var(--background);
+    height: fit-content;
+    width: min(47rem, 98%);
+    padding-inline: .5rem;
+}
+
+.dofusClasses ul li.classDofusBuildsMenu-expanded img {
+    margin-inline: 0;
+    margin-top: 0;
+}
+
+.buildMenuContent,
+.buildMenuTop button {
+    display: none;
+}
+
+li.classDofusBuildsMenu-expanded .buildMenuTop button {
+    background-color: var(--background);
+    border: none;
+    padding-left: 1rem;
+}
+
+li.classDofusBuildsMenu-expanded .buildMenuContent, 
+li.classDofusBuildsMenu-expanded .buildMenuTop button {
+    display: initial;
+    width: 5rem;   
+}
+
+.dofusClasses ul li.classDofusBuildsMenu-expanded .buildMenuTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.buildMenuContent h3 {
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.dofusClasses ul li .buildMenuContent img {
+    margin-inline: auto;
+}
+
+.dofusClasses ul li .buildMenuContent ul {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.dofusClasses ul li .buildMenuContent ul li {
+    width: min(45rem, 98%);
+    height: fit-content;
+    margin-top: 1rem;
+
+}
+
+#buildMenuContent.buildMenuContent ul li a img {
+    width: min(40rem, 95%);
+    height: min(50rem,50%);
+}
+
+#buildMenuContent.buildMenuContent ul li img.buildIcons,
+#buildMenuContent.buildMenuContent ul li a img.buildIcons {
+    width: 5rem;
+    height: 5rem;
+    margin-bottom: .5rem;
+    margin-inline: 0;
+}
+
+.dofusClasses ul li .buildMenuContent ul.elementsBuildsMenu-expanded {
+    display: initial;
+    visibility: visible;
+    opacity: 1;
+}
+
+.buildTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 4rem;
+}
+
+.hiddenContent {
+    display: none;
+}
+
+.hiddenContentMenu-expanded {
+    display: none;
+}
+
+/* ===== Tutorials ==========*/
+
+#tutorials .content ul li {
+    background-color: var(--background-2);
+    border: 1px var(--soft-orange) solid;
+    border-radius: 2rem;
+    margin-bottom: 2rem;
+    width: 21rem;
+    margin-inline: auto;
+}
+
+#tutorials .content ul li a img.bigImg {
+    padding-inline: 1rem;
+    padding-top: 2rem;
+}
+#tutorials .content ul li a img {
+    height: 17rem;
+    width: 15rem;
+}
+
+#tutorials .content ul li a img {
+    padding-top: 2rem;
+}
+
+
+.content ul li a {
+    text-decoration: none;
+    color: var(--headline);
+}
+
+/* ===== Footer ==========*/
+footer h1 {
+    color: white;
+}
+
+footer .wrapper {
+    padding-inline: 2rem;
+    margin-left: 1rem;
+    text-align: left;
+}
+
+footer .social-links ul {
+    margin-inline: 0;
+    justify-content: left;
+}
+
+/* ==== RESPONSIVO =======================================*/
+@media (min-width: 1024px) {
+
+    /* ==== GERAL =======================================*/
+    body {
+        overflow: auto;
+    }
+    
+    .wrapper {
+        width: min(255rem, 100%);
+        display: grid;
+    }
+
+    .col-a {
+        grid-area: A;
+    }
+
+    .col-b {
+        grid-area: C;
+    }
+
+    section {
+        padding-block: 10rem;
+    }
+
+    /* ==== NAVIGATION =======================================*/
+    
+    nav#navigation .wrapper * {
+        margin: 0;
+        padding: 0;
+        visibility: initial;
+        display: initial;
+        opacity: initial;
+        flex-direction: initial;
+        position: initial;
+        font-size: initial;
+        transform: initial;
+        color: initial;
+        background-color: initial;
+        font-weight: initial;
+        filter: initial;
+    }
+
+    nav {
+        display: flex;
+        position: fixed;
+        top: 0;
+        z-index: 100;
+        background-color: var(--primary-color);
+        height: 8rem;
+    }
+
+
+    nav#navigation a {
+        text-decoration: none;
+    } 
+    
+    nav#navigation {
+        width: min(256rem,100%);
+        margin-inline: auto;
+    }
+
+    nav#navigation div.wrapper, 
+    nav#navigation .wrapper .social-links {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    nav#navigation a.logo {
+        display: flex;
+        align-items: center;
+    }
+
+    nav#navigation a.logo h3 {
+        font-size: 3rem;
+        color: white;
+    }
+
+    nav#navigation .menu {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 56.5%;
+    }
+
+    nav#navigation .menu ul li a {
+        color: white;
+        opacity: 0.7;
+    }
+
+    nav#navigation .menu ul:nth-child(1) {
+        display: flex;
+        gap: 3.2rem;
+    }
+
+    nav#navigation .menu li a {
+        transition: opacity .4s;
+    }
+
+    nav#navigation .menu li a:hover {
+        opacity: 1;
+        font-weight: 700;
+    }
+
+    nav#navigation .menu li a::after {
+        content: '';
+        width: 0%;
+        height: 2px;
+        background-color: var(--primary-color);
+
+        position: relative;
+        bottom: -2rem;
+        left: -1rem;
+        
+
+        display: block;
+
+        transition: width 0.2s;
+    }
+
+    nav#navigation.scroll .menu li a::after {
+        background-color: white;
+    }
+
+    nav#navigation .menu li a.active::after, 
+    nav#navigation .menu li a:hover::after {
+        padding-inline: 1.1rem;
+        width: 100%;
+    }
+     
+    nav#navigation.scroll .menu li a.active, 
+    nav#navigation.scroll .menu li a:hover {
+        opacity: 1;
+    }
+
+    nav#navigation.scroll .menu a.button.active, 
+    nav#navigation.scroll .menu a.button:hover {
+        background-color: var(--primary-color);
+        filter: brightness(1.3);
+        border: none;
+    }
+
+    nav#navigation .menu a.button:hover {
+        background-color: var(--primary-color);
+        color: white;
+    }
+
+
+    /* ==== HOME =======================================*/
+    #home {
+        display: none;
+    }
+
+    /* ==== ABOUT =======================================*/
+    
+    #about {
+        display: none;
+    }
+
+    /* ==== BUILDS =======================================*/
+    #brunachosBuilds {
+        padding-bottom: 4rem;
+    }
+
+    #brunachosBuilds .content {
+        margin-inline: auto;
+        width: min(255rem,99%);
+    }
+    
+    #brunachosBuilds #dofusBuilds.buildMenu-expanded {
+        display: flex;
+        justify-content: center;
+        width: min(255rem,99%);
+    }
+
+    #dofusBuilds {
+        height: fit-content;
+        width: min(255rem,99%);
+    }
+
+    #brunachosBuilds #dofusBuilds.buildMenu-expanded,
+    #brunachosBuilds #dofusBuilds {
+        display: grid;
+        grid-template-columns: 50% 50% ;
+        grid-template-areas: 
+        'A A'
+        'C C';
+        flex-direction: row;
+    }
+
+
+    #dofusImage {
+        display: none;
+    }
+
+    .dofusClasses {
+        visibility: initial;
+        opacity: 1;
+        transform: none;
+        flex-direction: column;
+        grid-area: A;
+    }
+
+    .dofusClasses ul {
+        display: flex;
+        padding-top: 2.4rem;
+        gap: .5%;
+    }
+
+    .dofusClasses ul li {
+        width: 7rem;
+        height: 7rem;
+    }
+
+    .dofusClasses h2 {
+        font-size: 1.3rem;
+    }
+
+    .dofusClasses ul li.classDofusBuildsMenu-expanded {
+        display: none;
+    }
+
+    #dofusBuilds .dofusClasses ul li img {
+        width: 2rem;
+        height:2rem;
+        margin-bottom: 1rem;
+    }
+
+    .hiddenContent {
+        display: grid;
+        grid-area: C;
+
+        border-radius: 1rem;
+        border: 1px solid var(--soft-orange);
+        padding-block: 1rem;
+        margin-inline: auto;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1rem;
+        background-color: var(--soft-background);
+        height: fit-content;
+        width: min(255rem,99%);
+    }
+
+    .classTop {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-inline: auto;
+        gap: 5%;
+        padding-bottom: 2rem;
+    }
+
+    #dofusBuilds .classTop img {
+        height: 7.5rem;
+        width: 6.6rem;
+        margin: 0;
+    }
+
+    #dofusBuilds .classContent img,
+    #dofusBuilds .classContent .contentBuildTop a img {
+        height: 5rem;
+        width: 5rem;
+        margin: 0;
+    }
+
+    #dofusBuilds #geralContent .classContent img.ilust  {
+        margin-inline: auto;
+    }
+
+    #dofusBuilds .classContent a img {
+        width: 39rem;
+        height: 54rem;
+    }
+
+    #dofusBuilds .classContent a.three img {
+        width: 27rem;
+        height: 37rem;
+    }
+
+    .classContent h3 {
+        padding-bottom: 2rem;
+    }
+
+    .contentBuildTop h3 {
+        padding-bottom: 0;
+    }
+
+    .contentBuildTop {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-inline: auto;
+        gap: 2rem;    
+    }
+
+    .buildContent {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 6rem;
+    }
+    
+    #GeralContent, 
+    #CraContent, 
+    #EcaflipContent, 
+    #EliotropeContent, 
+    #EnutrofContent, 
+    #FecaContent, 
+    #ForjalançaContent, 
+    #IopContent, 
+    #KilorfContent, 
+    #OsamodasContent, 
+    #PandawaContent, 
+    #SacrierContent, 
+    #SadidaContent {
+        display: none;
+    }
+
+    #GeralContent.hiddenContentMenu-expanded,
+    #CraContent.hiddenContentMenu-expanded, 
+    #EcaflipContent.hiddenContentMenu-expanded, 
+    #EliotropeContent.hiddenContentMenu-expanded, 
+    #EnutrofContent.hiddenContentMenu-expanded, 
+    #FecaContent.hiddenContentMenu-expanded, 
+    #ForjalançaContent.hiddenContentMenu-expanded, 
+    #IopContent.hiddenContentMenu-expanded, 
+    #KilorfContent.hiddenContentMenu-expanded, 
+    #OsamodasContent.hiddenContentMenu-expanded, 
+    #PandawaContent.hiddenContentMenu-expanded, 
+    #SacrierContent.hiddenContentMenu-expanded, 
+    #SadidaContent.hiddenContentMenu-expanded {
+        display: initial;
+        opacity: 1;
+    }
+
+    /* ==== TUTORIALS =======================================*/
+
+    #tutorials {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    #tutorials .content {
+        display: grid;
+        grid-template-columns: 50% 50% ;
+        grid-template-areas: 
+        'A A'
+        'C C';
+    }
+
+    #tutorials h1 {
+        padding-bottom: 3rem;
+    }
+
+    .col-a ul,
+    .col-b ul {
+        display: flex;
+    }
+
+
+}
